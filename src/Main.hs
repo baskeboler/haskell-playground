@@ -13,10 +13,11 @@ primos a = [x | x <- [1..a], esPrimo x]
 sumaPrimos :: Int -> Int
 sumaPrimos a = sum $ primos a
 
-
+limiteSuperior :: Int
+limiteSuperior = 10000
 
 main :: IO ()
 
 main = do 
     putStrLn "Imprimiendo bobadas."
-    putStrLn $ "Suma primos hasta 5000" ++ show (sumaPrimos 10000)
+    putStrLn $ "Suma primos hasta 5000" ++ show (sumaPrimos limiteSuperior)
