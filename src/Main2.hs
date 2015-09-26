@@ -73,6 +73,7 @@ compress (a:b:xs) = if a == b
 cosas :: [Integer]
 cosas = [1, 2, 3, 4, 23]
 
+mem :: Personas.PersonaMemory
 mem = crearPersona initPersonaMemory "Victor" "095253555" "8 de oct 2323" 33
 -- | The main entry point.
 main :: IO ()

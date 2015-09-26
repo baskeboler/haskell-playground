@@ -1,4 +1,4 @@
-module Personas(initPersonaMemory,getPersona,crearPersona, main) where
+module Personas(initPersonaMemory,getPersona,crearPersona, main, PersonaMemory) where
 
 data Nombre = Nom String
 data Apellido = Ap String
@@ -33,23 +33,23 @@ getPersona m idPersona = get' $ filter (\p ->(idP p)==idPersona) $ personas m
           get' [a] = Just a
           get' _ = Nothing
 
-ingresarPersona :: IO Persona
-ingresarPersona = do
+ingresarPersona :: PersonaMemory -> IO (PersonaMemory)
+ingresarPersona m = do
     putStrLn "Nombre: "
-    nom  <- getLine 
+    nom  <- getLine
     putStrLn "Tel: "
     tel <- getLine
     putStrLn "Dir: "
     dir <- getLine
-    putStrLn "id: "
-    idStr <- getLine
-    id <- return $ read idStr
     putStrLn "edad: "
     edadStr <- getLine
     edad <- return $ read edadStr
-    return $ Pers id nom tel dir edad
+    return $ crearPersona m nom tel dir edad
 
+main :: IO ()
 main = do
-    p <- ingresarPersona
-    print p
-
+    putStrLn "Hola"
+    m2 <- (ingresarPersona initPersonaMemory)
+    print m2 
+    m3 <- (ingresarPersona m2)
+    print m3 
