@@ -14,6 +14,7 @@ sumaPrimos :: Int -> Int
 sumaPrimos a = sum $ primos a
 
 
+
 main :: IO ()
 
 main = do 
