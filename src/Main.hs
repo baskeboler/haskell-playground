@@ -1,6 +1,5 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 module Main where
-import Control.Monad.Reader
+
 
 divisores :: Int -> [Int]
 divisores a = [x | x <- [1..a], a `rem` x == 0]
@@ -19,4 +18,4 @@ main :: IO ()
 
 main = do 
     putStrLn "Imprimiendo bobadas."
-    putStrLn $ "Suma primos hasta 5000" ++ (show $ sumaPrimos 5000)
+    putStrLn $ "Suma primos hasta 5000" ++ show (sumaPrimos 10000)
